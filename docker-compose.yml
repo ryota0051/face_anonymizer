@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  face_anonymizer:
+    build: .
+    volumes:
+      - ./input:/face_anonymizer/input
+      - ./output:/face_anonymizer/output
