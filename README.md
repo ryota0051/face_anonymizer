@@ -8,7 +8,7 @@
 
 ## 使用技術
 
-顔検出にRetinaFace(https://arxiv.org/abs/1905.00641)を使用
+顔検出にRetinaFace( https://arxiv.org/abs/1905.00641 )を使用
 
 ## 前提条件
 
