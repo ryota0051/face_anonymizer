@@ -79,6 +79,7 @@ docker-compose build
 2. スクリプト実行
 
 ```
+# --model引数でliteRetinaFaceを指定するとより速い推論が可能(精度はあまりよくない。)
 python main.py --src <手順1でinputディレクトリに入れたファイル名>
 ```
 
@@ -89,5 +90,6 @@ python main.py --src <手順1でinputディレクトリに入れたファイル�
 2. コンテナ経由でスクリプト実行
 
 ```
+# --model引数でliteRetinaFaceを指定するとより速い推論が可能(精度はあまりよくない。)
 docker-compose run --rm face_anonymizer python main.py --src <手順1でinputディレクトリに入れたファイル名>
 ```

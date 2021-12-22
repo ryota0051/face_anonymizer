@@ -1,7 +1,10 @@
 import os
 import argparse
 
-from src.detector.face import FaceDetectorRetinaFace
+from src.detector.face import (
+    FaceDetectorRetinaFace,
+    FaceDetectorLiteRetinaFace
+)
 from src.movie.anonymizer import paint_black
 from src.movie.convert import MovieToAnonymizedMovie
 
@@ -13,7 +16,7 @@ def get_args():
         default='test1.mp4',
         help='inputディレクトリ内の動画ファイル名'
     )
-    parser.add_argument('--model', default='RetinaFace', help='使用するモデル')
+    parser.add_argument('--model', default='RetinaFace', help='使用するモデル(RetinaFace or liteRetinaFace)')
     parser.add_argument('--th', default=0.5, help='検出しきい値', type=float)
     return parser.parse_args()
 
@@ -23,6 +26,11 @@ def main():
     face_detector = None
     if args.model == 'RetinaFace':
         face_detector = FaceDetectorRetinaFace(th=args.th)
+    elif args.model == 'liteRetinaFace':
+        face_detector = FaceDetectorLiteRetinaFace(
+            onnx_path='model/version-RFB-320_simplified.onnx',
+            th=args.th
+        )
     if face_detector is None:
         print(f'{args.model}は使用できません')
 
